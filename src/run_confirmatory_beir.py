@@ -145,10 +145,10 @@ def main():
     encoder=SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2',device='cpu')
     results=[evaluate(name,model,threshold,encoder) for name in DATASETS]
     p=np.asarray([r['primary_one_sided_p'] for r in results]); order=np.argsort(p)
-    adjusted=np.empty(2)
+    adjusted=np.empty(len(results))
     running=0.
     for rank,index in enumerate(order):
-        running=max(running,(2-rank)*p[index]);adjusted[index]=min(1.,running)
+        running=max(running,(len(results)-rank)*p[index]);adjusted[index]=min(1.,running)
     for r,adj in zip(results,adjusted):
         r['holm_adjusted_p']=float(adj)
         r['confirmatory_positive_at_0_05']=bool(adj<=.05 and r['router_minus_random']>0)
