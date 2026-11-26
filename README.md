@@ -88,3 +88,15 @@ This evaluation downloads the BEIR TREC-COVID dataset if necessary and runs the 
 The SciFact feature-validation script is available at `src/finalize_router_train_enriched.py` and requires the original BEIR SciFact training dataset under `datasets/scifact/`.
 
 These instructions have not yet been independently validated through a complete end-to-end execution.
+
+## License
+
+The original source code authored by the researchers in
+`src/` is made available under the MIT License.
+See the LICENSE file.
+
+The archived research datasets, query-level outputs,
+historical audit files, and any third-party materials
+are not automatically covered by this software license.
+Their use remains subject to applicable data rights,
+licenses, and attribution requirements.
