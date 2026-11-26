@@ -1,7 +1,3 @@
-"""Reproduce fixed-K random allocation results from per-query CSV exports.
-Requires numpy. Input datasets are the two CSV files supplied by the author.
-This reproduces offline randomization, NOT retriever inference or latency.
-"""
 import csv
 from pathlib import Path
 import numpy as np
