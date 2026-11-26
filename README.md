@@ -38,7 +38,9 @@ The available materials do not establish complete end-to-end reproduction of eve
 
 The original ArguAna evaluation included improper same-ID query–document matches. Its historical results are provided only for auditability and must not be interpreted as benchmark-compliant confirmatory evidence.
 
-The script `run_confirmatory_beir.py` retains historical evaluation behavior. It should not be used to claim benchmark-compliant confirmation for ArguAna. Consult the manuscript and supplementary material for the corrected analysis.
+The script `run_confirmatory_beir.py` is configured to evaluate TREC-COVID only. ArguAna is excluded from its default execution because the historical ArguAna evaluation contained improper same-ID query–document matches. Historical ArguAna artifacts are retained separately in `historical_audit/` for transparency and must not be interpreted as benchmark-compliant confirmatory results.
+
+The available scripts and archived outputs support partial reproducibility. Full end-to-end reproduction of all original retrieval and latency experiments has not yet been established.
 
 The SciFact enrichment script depends on the original BEIR SciFact data and the archived router_dataset.csv. Some legacy scripts expect training CSV files under `outputs/router/`, whereas this repository stores the shared CSV files under `data/scifact/`.
 
