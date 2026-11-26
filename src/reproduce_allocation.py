@@ -30,5 +30,6 @@ maxadj=0
 for rank,i in enumerate(order):
     maxadj=max(maxadj,min(1,(len(output)-rank)*output[i]['one_sided_p']))
     output[i]['holm_adjusted_p']=maxadj
-with open(Path(__file__).parent/'SCIDOCS_Android_statistical_audit.csv','w',newline='',encoding='utf-8') as f:
+with open(Path(__file__).resolve().parents[1] / 'results' / filename,
+          encoding='utf-8-sig', newline='') as f:
     w=csv.DictWriter(f,fieldnames=list(output[0]));w.writeheader();w.writerows(output)
