@@ -1,1 +1,6 @@
-
+numpy
+pandas
+scikit-learn
+rank-bm25
+sentence-transformers
+beir
