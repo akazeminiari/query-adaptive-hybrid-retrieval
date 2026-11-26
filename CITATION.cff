@@ -1,1 +1,15 @@
-
+cff-version: 1.2.0
+message: "If you use this research software, please cite this archive."
+type: software
+title: "Query-Adaptive Hybrid Retrieval Across Domains: Reproducibility Software and Artifacts"
+authors:
+  - family-names: "Kazemi Niari"
+    given-names: "Ali"
+    affiliation: "Istanbul Rumeli University"
+  - family-names: "Lesani"
+    given-names: "Asma"
+    affiliation: "Istanbul Rumeli University"
+repository-code: "https://github.com/akazeminiari/query-adaptive-hybrid-retrieval"
+url: "https://github.com/akazeminiari/query-adaptive-hybrid-retrieval"
+version: "1.0.1"
+abstract: "Research software and archived outputs for evaluating query-adaptive hybrid retrieval, including SciFact-trained routing, cross-domain effectiveness, fixed-budget random allocation, controlled latency, and historical protocol-audit artifacts. The archive supports partial reproducibility."
