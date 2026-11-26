@@ -53,3 +53,38 @@ If you use these materials, please cite the accompanying manuscript. Publication
 ## Contact
 Ali Kazemi Niari
 akazemi.niari@rumeli.edu.tr
+
+## Installation and Statistical Reproduction
+
+Clone the repository:
+
+```bash
+git clone https://github.com/akazeminiari/query-adaptive-hybrid-retrieval.git
+cd query-adaptive-hybrid-retrieval
+```
+
+Install the Python dependencies:
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+Reproduce the archived SCIDOCS and Android fixed-budget random allocation analyses:
+
+```bash
+python src/reproduce_allocation.py
+```
+
+The script reads the archived per-query results from `results/` and writes `src/SCIDOCS_Android_statistical_audit.csv`.
+
+The TREC-COVID retrieval evaluation can be launched with:
+
+```bash
+python src/run_confirmatory_beir.py
+```
+
+This evaluation downloads the BEIR TREC-COVID dataset if necessary and runs the frozen SciFact-trained router. It is substantially more computationally demanding than the statistical reproduction script. ArguAna is excluded from the default evaluation.
+
+The SciFact feature-validation script is available at `src/finalize_router_train_enriched.py` and requires the original BEIR SciFact training dataset under `datasets/scifact/`.
+
+These instructions have not yet been independently validated through a complete end-to-end execution.
