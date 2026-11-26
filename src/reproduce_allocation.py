@@ -7,7 +7,8 @@ DRAWS=50000
 DATASETS=[('SCIDOCS','scidocs_per_query.csv'),('CQADupstack-Android','cqadupstack_android_per_query.csv')]
 output=[]
 for name, filename in DATASETS:
-    with open(Path(__file__).parent.parent / filename, encoding='utf-8-sig', newline='') as f:
+    with open(Path(__file__).resolve().parents[1] / 'results' / filename,
+          encoding='utf-8-sig', newline='') as f:
         data=list(csv.DictReader(f))
     n=len(data)
     bm25=np.array([float(row['bm25_ndcg5']) for row in data]); hybrid=np.array([float(row['hybrid_ndcg5']) for row in data]);
@@ -30,6 +31,6 @@ maxadj=0
 for rank,i in enumerate(order):
     maxadj=max(maxadj,min(1,(len(output)-rank)*output[i]['one_sided_p']))
     output[i]['holm_adjusted_p']=maxadj
-with open(Path(__file__).resolve().parents[1] / 'results' / filename,
-          encoding='utf-8-sig', newline='') as f:
+with open(Path(__file__).parent / 'SCIDOCS_Android_statistical_audit.csv',
+          'w', newline='', encoding='utf-8') as f:
     w=csv.DictWriter(f,fieldnames=list(output[0]));w.writeheader();w.writerows(output)
