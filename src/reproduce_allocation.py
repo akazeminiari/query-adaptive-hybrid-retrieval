@@ -4,7 +4,7 @@ import numpy as np
 
 SEED=20261109
 DRAWS=50000
-DATASETS=[('SCIDOCS','scidocs_per_query(1).csv'),('CQADupstack-Android','cqadupstack_android_per_query(1).csv')]
+DATASETS=[('SCIDOCS','scidocs_per_query.csv'),('CQADupstack-Android','cqadupstack_android_per_query.csv')]
 output=[]
 for name, filename in DATASETS:
     with open(Path(__file__).parent.parent / filename, encoding='utf-8-sig', newline='') as f:
