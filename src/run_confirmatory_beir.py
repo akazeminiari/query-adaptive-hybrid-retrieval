@@ -17,7 +17,7 @@ OUT.mkdir(parents=True, exist_ok=True)
 BASE = ['query_length','unique_terms','bm25_top1','bm25_top2','bm25_margin','bm25_top5_mean']
 EXTRA = ['top1_query_coverage','top5_query_coverage','top1_title_coverage','bm25_score_drop','top5_document_diversity']
 FEATURES = BASE + EXTRA
-DATASETS = ('trec-covid', 'arguana')
+DATASETS = ('trec-covid',)
 MARGIN_THRESHOLD = 5.12617462
 B_RANDOM = 50000
 B_BOOT = 20000
@@ -131,7 +131,7 @@ def evaluate(name, model, threshold, encoder):
     return result
 
 def main():
-    train=pd.read_csv(OUT/'router_train_enriched.csv',dtype={'query_id':str})
+    train=pd.read_csv(ROOT/'data'/'scifact'/'router_train_enriched.csv',dtype={'query_id':str})
     train=train[train['split'].eq('train')].reset_index(drop=True)
     if len(train)!=647: raise ValueError(f'Expected 647 SciFact train queries, got {len(train)}')
     X=train[FEATURES].to_numpy(dtype=float)
