@@ -168,7 +168,7 @@ def main():
     args = parser.parse_args()
     root = args.root.resolve()
     out = root/'outputs'/'router'
-    base_path = out/'router_dataset.csv'
+    base_path = root/'data'/'scifact'/'router_dataset.csv'
     data_dir = root/'datasets'/'scifact'
     target_path = out/'router_train_enriched.csv'
     report_path = out/'router_train_enriched_validation.json'
